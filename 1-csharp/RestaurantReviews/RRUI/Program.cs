@@ -1,7 +1,4 @@
-﻿using System;
-using RRModels;
-using System.Collections.Generic;
-namespace RRUI
+﻿namespace RRUI
 {
     class Program
     {

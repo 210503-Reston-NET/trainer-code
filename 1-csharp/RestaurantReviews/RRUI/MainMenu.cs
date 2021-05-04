@@ -1,3 +1,6 @@
+using System;
+using RRModels;
+using System.Collections.Generic;
 namespace RRUI
 {
     public class MainMenu : IMenu
@@ -11,7 +14,7 @@ namespace RRUI
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("[0] View a restaurant");
                 Console.WriteLine("[1] Exit");
-                string input = Console.Readline();
+                string input = Console.ReadLine();
                 switch (input)
                 {
                     case "0":
