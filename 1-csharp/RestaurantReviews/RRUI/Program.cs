@@ -1,18 +1,15 @@
 ﻿using System;
 using RRModels;
+using System.Collections.Generic;
 namespace RRUI
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Restaurant goodTaste = new Restaurant("Good Taste", "Baguio City", "Benguet");
-            goodTaste.Review = new Review
-            {
-                Rating = 5,
-                Description = "A M A Z I N G"
-            };
-            Console.WriteLine(goodTaste.ToString());
+            //Setting a parent type to an instance of a subtype is called covariance
+            IMenu menu = new MainMenu();
+            menu.Start();
         }
     }
 }
