@@ -38,6 +38,7 @@ namespace RRDL
             }
             catch (Exception ex)
             {
+                //logging to the console
                 Console.WriteLine(ex.Message);
                 return new List<Restaurant>();
             }
