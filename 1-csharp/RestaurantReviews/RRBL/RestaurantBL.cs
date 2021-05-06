@@ -18,6 +18,13 @@ namespace RRBL
         {
             _repo = repo;
         }
+
+        public Restaurant AddRestaurant(Restaurant restaurant)
+        {
+            // Todo: call a repo method that adds a restaurant
+            return _repo.AddRestaurant(restaurant);
+        }
+
         public List<Restaurant> GetAllRestaurants()
         {
             //Note that this method isn't really dependent on any inputs/parameters, I can just directly call the 

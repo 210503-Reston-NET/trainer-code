@@ -20,7 +20,7 @@ namespace RRUI
                 {
                     case "0":
                         //TODO: Fix this
-                        submenu = new RestaurantMenu(new RestaurantBL(new RepoSC()));
+                        submenu = new RestaurantMenu(new RestaurantBL(new RepoSC()), new ValidationService());
                         submenu.Start();
                         break;
                     case "1":
