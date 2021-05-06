@@ -16,7 +16,7 @@ namespace RRModels
                 //Setting validation logic in properties
                 if (_rating < 0)
                 {
-                    throw new Exception("Rating should be greater tha zero.")
+                    throw new Exception("Rating should be greater tha zero.");
                 }
                 _rating = value;
             }
