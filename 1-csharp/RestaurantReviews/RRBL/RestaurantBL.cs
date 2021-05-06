@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using RRModels;
 using RRDL;
+using System;
+
 namespace RRBL
 {
     /// <summary>
@@ -22,6 +24,10 @@ namespace RRBL
         public Restaurant AddRestaurant(Restaurant restaurant)
         {
             // Todo: call a repo method that adds a restaurant
+            if (_repo.GetRestaurant(restaurant) != null)
+            {
+                throw new Exception("Restaurant already exists :<");
+            }
             return _repo.AddRestaurant(restaurant);
         }
 

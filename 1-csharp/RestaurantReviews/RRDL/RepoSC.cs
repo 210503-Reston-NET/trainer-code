@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using RRModels;
+using System.Linq;
 namespace RRDL
 {
     //Implementation of the IRepository that stores data in a static collection
@@ -14,6 +15,13 @@ namespace RRDL
         public List<Restaurant> GetAllRestaurants()
         {
             return RRSCStorage.Restaurants;
+        }
+
+        public Restaurant GetRestaurant(Restaurant restaurant)
+        {
+            // Uses LINQ (Language Integrated Query) which allows you to query collections to get the neccessary 
+            // data without having to traverse the collection manually in a foreach iteration
+            return RRSCStorage.Restaurants.FirstOrDefault(resto => resto.Equals(restaurant));
         }
     }
 }

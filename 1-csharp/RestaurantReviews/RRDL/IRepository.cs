@@ -6,5 +6,7 @@ namespace RRDL
     {
         List<Restaurant> GetAllRestaurants();
         Restaurant AddRestaurant(Restaurant restaurant);
+
+        Restaurant GetRestaurant(Restaurant restaurant);
     }
 }
