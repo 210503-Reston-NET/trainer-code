@@ -3,7 +3,9 @@ using RRModels;
 using System.Linq;
 namespace RRDL
 {
-    //Implementation of the IRepository that stores data in a static collection
+    /// <summary>
+    /// Implementation of the IRepository that stores data in a static collection
+    /// </summary>
     public class RepoSC : IRepository
     {
         public Restaurant AddRestaurant(Restaurant restaurant)

@@ -70,10 +70,15 @@ namespace RRUI
         {
             //TODO: Remove the hardcoded restaurant and refer to a stored restaurant that exists
             List<Restaurant> restaurants = _restaurantBL.GetAllRestaurants();
-            foreach (Restaurant restaurant in restaurants)
+            if (restaurants.Count == 0) Console.WriteLine("No restaurants :< You should add some");
+            else
             {
-                Console.WriteLine(restaurant.ToString());
+                foreach (Restaurant restaurant in restaurants)
+                {
+                    Console.WriteLine(restaurant.ToString());
+                }
             }
+
         }
     }
 }
