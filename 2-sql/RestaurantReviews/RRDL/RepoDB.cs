@@ -39,7 +39,7 @@ namespace RRDL
                 {
                     Rating = review.Rating,
                     Description = review.Description,
-                    RestaurantId = _context.Restaurants.FirstOrDefault(resto => resto.Name == restaurant.Name && resto.City == restaurant.City && resto.State == restaurant.State).Id
+                    RestaurantId = GetRestaurant(restaurant).Id
                 }
             );
             _context.SaveChanges();
@@ -50,7 +50,7 @@ namespace RRDL
         {
             return _context.Restaurants
             .Select(
-                restaurant => new Model.Restaurant(restaurant.Name, restaurant.City, restaurant.State)
+                restaurant => new Model.Restaurant(restaurant.Id, restaurant.Name, restaurant.City, restaurant.State)
             ).ToList();
         }
 
@@ -60,7 +60,7 @@ namespace RRDL
             Entity.Restaurant found = _context.Restaurants.FirstOrDefault(resto => resto.Name == restaurant.Name && resto.City == restaurant.City && resto.State == restaurant.State);
             // we get the results and return null if nothing is found, otherwise return a Model.Restaurant that was found
             if (found == null) return null;
-            return new Model.Restaurant(found.Name, found.City, found.State);
+            return new Model.Restaurant(found.Id, found.Name, found.City, found.State);
         }
 
         public List<Review> GetReviews(Restaurant restaurant)
@@ -73,9 +73,9 @@ namespace RRDL
             // a list
 
             //Finding the restaurant from the db, to be able to take advantage of the Id property the model doesn't have
-            Entity.Restaurant foundResto = _context.Restaurants.FirstOrDefault(resto => resto.Name == restaurant.Name && resto.City == restaurant.City && resto.State == restaurant.State);
+            //Entity.Restaurant foundResto = _context.Restaurants.FirstOrDefault(resto => resto.Name == restaurant.Name && resto.City == restaurant.City && resto.State == restaurant.State);
             return _context.Reviews.Where(
-                review => review.RestaurantId == foundResto.Id
+                review => review.RestaurantId == GetRestaurant(restaurant).Id
                 ).Select(
                     review => new Model.Review
                     {
