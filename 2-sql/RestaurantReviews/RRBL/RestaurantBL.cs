@@ -31,6 +31,13 @@ namespace RRBL
             return _repo.AddRestaurant(restaurant);
         }
 
+        public Restaurant DeleteRestaurant(Restaurant restaurant)
+        {
+            Restaurant toBeDeleted = _repo.GetRestaurant(restaurant);
+            if (toBeDeleted != null) return _repo.DeleteRestaurant(toBeDeleted);
+            else throw new Exception("Restaurant does not exist. Must've been deleted already :>");
+        }
+
         public List<Restaurant> GetAllRestaurants()
         {
             //Note that this method isn't really dependent on any inputs/parameters, I can just directly call the 

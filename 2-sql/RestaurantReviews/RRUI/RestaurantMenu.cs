@@ -23,7 +23,8 @@ namespace RRUI
                 Console.WriteLine("[0] View restaurants");
                 Console.WriteLine("[1] Create a restaurant");
                 Console.WriteLine("[2] Search restaurant");
-                Console.WriteLine("[3] Go back");
+                Console.WriteLine("[3] Delete a restaurant");
+                Console.WriteLine("[4] Go back");
                 string input = Console.ReadLine();
                 switch (input)
                 {
@@ -37,6 +38,9 @@ namespace RRUI
                         MenuFactory.GetMenu("review").Start();
                         break;
                     case "3":
+                        DeleteARestaurant();
+                        break;
+                    case "4":
                         repeat = false;
                         break;
                     default:
@@ -46,7 +50,22 @@ namespace RRUI
             } while (repeat);
         }
 
+        private void DeleteARestaurant()
+        {
+            Console.WriteLine("Enter the restaurant details of the restaurant you want to delete");
+            string name = _validate.ValidateString("Enter the restaurant name: ");
+            string city = _validate.ValidateString("Enter the city where the restaurant is located");
+            string state = _validate.ValidateString("Enter the state where the restaurant is located at");
 
+            try
+            {
+                _restaurantBL.DeleteRestaurant(new Restaurant(name, city, state));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
         private void AddARestaurant()
         {

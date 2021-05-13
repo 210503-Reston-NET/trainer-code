@@ -46,6 +46,14 @@ namespace RRDL
             return review;
         }
 
+        public Restaurant DeleteRestaurant(Restaurant restaurant)
+        {
+            Entity.Restaurant toBeDeleted = _context.Restaurants.First(resto => resto.Id == restaurant.Id);
+            _context.Restaurants.Remove(toBeDeleted);
+            _context.SaveChanges();
+            return restaurant;
+        }
+
         public List<Model.Restaurant> GetAllRestaurants()
         {
             return _context.Restaurants
@@ -72,8 +80,9 @@ namespace RRDL
             // Immediately execute the linq query by calling tolist, which takes the data from the db and puts it in 
             // a list
 
-            //Finding the restaurant from the db, to be able to take advantage of the Id property the model doesn't have
+            //Finding the restaurant from the db, to be able to take advantage of the Id property the model doesn't have (well now it does)
             //Entity.Restaurant foundResto = _context.Restaurants.FirstOrDefault(resto => resto.Name == restaurant.Name && resto.City == restaurant.City && resto.State == restaurant.State);
+
             return _context.Reviews.Where(
                 review => review.RestaurantId == GetRestaurant(restaurant).Id
                 ).Select(
