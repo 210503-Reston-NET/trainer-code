@@ -20,7 +20,6 @@ namespace RRDL.Entities
         public virtual DbSet<Restaurant> Restaurants { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
@@ -65,7 +64,7 @@ namespace RRDL.Entities
                 entity.HasOne(d => d.Restaurant)
                     .WithMany(p => p.Reviews)
                     .HasForeignKey(d => d.RestaurantId)
-                    .HasConstraintName("FK__reviews__restaur__5EBF139D");
+                    .HasConstraintName("FK__reviews__restaur__6D0D32F4");
             });
 
             OnModelCreatingPartial(modelBuilder);

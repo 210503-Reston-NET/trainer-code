@@ -1,5 +1,5 @@
-drop reviews
-drop restaurants
+drop table reviews
+drop table restaurants
  --table definition
  create table restaurants
  (
@@ -14,7 +14,7 @@ drop restaurants
      id int identity primary key,
      rating int not null,
      description nvarchar(240) not null,
-     restaurantID int references restaurants(id)
+     restaurantID int references restaurants(id) on delete cascade
  );
 
  --seeding the database
