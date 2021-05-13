@@ -29,6 +29,12 @@ namespace RRModels
         {
 
         }
+        // Constructor chaining
+        public Restaurant(int id, string name, string city, string state) : this(name, city, state)
+        {
+            this.Id = id;
+        }
+        public int Id { get; set; }
         /// <summary>
         /// This describes the name of your restaurant
         /// </summary>

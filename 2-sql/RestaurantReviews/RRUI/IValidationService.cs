@@ -10,5 +10,6 @@ namespace RRUI
         /// <param name="prompt"></param>
         /// <returns></returns>
         string ValidateString(string prompt);
+        int ValidateInt(string prompt);
     }
 }

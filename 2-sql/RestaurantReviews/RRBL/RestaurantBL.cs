@@ -37,5 +37,10 @@ namespace RRBL
             // DL method in charge of getting all restaurants
             return _repo.GetAllRestaurants();
         }
+
+        public Restaurant GetRestaurant(Restaurant restaurant)
+        {
+            return _repo.GetRestaurant(restaurant);
+        }
     }
 }

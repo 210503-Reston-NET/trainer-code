@@ -8,6 +8,13 @@ namespace RRModels
         /// This describes the overall numeric rating of a restaurant
         /// </summary>
         /// <value></value>
+        public Review(int rating, string desc)
+        {
+            this.Rating = rating;
+            this.Description = desc;
+        }
+        public Review()
+        { }
         public int Rating
         {
             get { return _rating; }

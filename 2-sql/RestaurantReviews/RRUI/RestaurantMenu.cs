@@ -22,7 +22,8 @@ namespace RRUI
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("[0] View restaurants");
                 Console.WriteLine("[1] Create a restaurant");
-                Console.WriteLine("[2] Go back");
+                Console.WriteLine("[2] Search restaurant");
+                Console.WriteLine("[3] Go back");
                 string input = Console.ReadLine();
                 switch (input)
                 {
@@ -33,6 +34,9 @@ namespace RRUI
                         AddARestaurant();
                         break;
                     case "2":
+                        MenuFactory.GetMenu("review").Start();
+                        break;
+                    case "3":
                         repeat = false;
                         break;
                     default:
@@ -41,6 +45,8 @@ namespace RRUI
                 }
             } while (repeat);
         }
+
+
 
         private void AddARestaurant()
         {

@@ -36,6 +36,8 @@ namespace RRUI
                     return new MainMenu();
                 case "restaurant":
                     return new RestaurantMenu(new RestaurantBL(new RepoDB(context)), new ValidationService());
+                case "review":
+                    return new ReviewMenu(new RestaurantBL(new RepoDB(context)), new ValidationService(), new ReviewBL(new RepoDB(context)));
                 default:
                     return null;
             }
