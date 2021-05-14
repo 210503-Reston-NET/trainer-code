@@ -21,7 +21,7 @@ namespace RRTests
         [Theory]
         [InlineData("2345678i")]
         [InlineData("beufkjsdhfkjs1")]
-        public void CityShouldNotSetInvalidData(string input, int number)
+        public void CityShouldNotSetInvalidData(string input)
         {
             //Arrange 
             Restaurant test = new Restaurant();
