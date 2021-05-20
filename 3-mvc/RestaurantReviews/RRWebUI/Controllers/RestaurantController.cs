@@ -38,12 +38,6 @@ namespace RRWebUI.Controllers
                 );
         }
 
-        // GET: RestaurantController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         // GET: RestaurantController/Create
         public ActionResult Create()
         {
@@ -80,17 +74,22 @@ namespace RRWebUI.Controllers
         // GET: RestaurantController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(new RestaurantVM(_restaurantBL.GetRestaurantById(id)));
         }
 
         // POST: RestaurantController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, RestaurantVM restaurantVM)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if(ModelState.IsValid)
+                {
+                    _restaurantBL.UpdateRestaurant(new Restaurant(restaurantVM.Id, restaurantVM.Name,restaurantVM.City, restaurantVM.State));
+                    return RedirectToAction(nameof(Index));
+                }
+                return View();
             }
             catch
             {

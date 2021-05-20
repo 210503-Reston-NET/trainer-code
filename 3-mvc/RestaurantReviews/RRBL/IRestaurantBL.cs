@@ -9,5 +9,6 @@ namespace RRBL
         Restaurant GetRestaurant(Restaurant restaurant);
         Restaurant GetRestaurantById(int id);
         Restaurant DeleteRestaurant(Restaurant restaurant);
+        Restaurant UpdateRestaurant(Restaurant restaurant);
     }
 }

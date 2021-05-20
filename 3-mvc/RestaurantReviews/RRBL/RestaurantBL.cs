@@ -54,5 +54,10 @@ namespace RRBL
         {
             return _repo.GetRestaurantById(id);
         }
+
+        public Restaurant UpdateRestaurant(Restaurant restaurant)
+        {
+            return _repo.UpdateRestaurant(restaurant);
+        }
     }
 }

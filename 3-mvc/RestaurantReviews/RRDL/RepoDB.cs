@@ -89,5 +89,12 @@ namespace RRDL
                     review => review
                 ).ToList();
         }
+
+        public Restaurant UpdateRestaurant(Restaurant restaurant)
+        {
+            _context.Restaurants.Update(restaurant);
+            _context.SaveChanges();
+            return restaurant;
+        }
     }
 }
