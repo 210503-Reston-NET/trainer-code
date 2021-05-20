@@ -42,12 +42,6 @@ namespace RRWebUI.Controllers
             return View(result.Item1.Select(review => new ReviewVM(review)).ToList());
         }
 
-        // GET: ReviewController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         // GET: ReviewController/Create
         public ActionResult Create(int id)
         {
@@ -61,8 +55,12 @@ namespace RRWebUI.Controllers
         {
             try
             {
-                _reviewBL.AddReview(_restaurantBL.GetRestaurantById(review.RestauranId), new Review { Rating = review.Rating, Description = review.Description });
-                return RedirectToAction(nameof(Index), new { id = review.RestauranId});
+                if(ModelState.IsValid)
+                {
+                    _reviewBL.AddReview(_restaurantBL.GetRestaurantById(review.RestauranId), new Review { Rating = review.Rating, Description = review.Description });
+                    return RedirectToAction(nameof(Index), new { id = review.RestauranId });
+                }
+                return View();
             }
             catch
             {
@@ -70,46 +68,6 @@ namespace RRWebUI.Controllers
             }
         }
 
-        // GET: ReviewController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: ReviewController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: ReviewController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: ReviewController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+      
     }
 }
