@@ -7,6 +7,7 @@ namespace RRDL
         List<Restaurant> GetAllRestaurants();
         Restaurant AddRestaurant(Restaurant restaurant);
         Restaurant GetRestaurant(Restaurant restaurant);
+        Restaurant GetRestaurantById(int id);
 
         Restaurant DeleteRestaurant(Restaurant restaurant);
         Review AddReview(Restaurant restaurant, Review review);

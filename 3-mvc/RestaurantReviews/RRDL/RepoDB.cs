@@ -66,6 +66,11 @@ namespace RRDL
             return new Model.Restaurant(found.Id, found.Name, found.City, found.State);
         }
 
+        public Restaurant GetRestaurantById(int id)
+        {
+            return _context.Restaurants.Find(id);
+        }
+
         public List<Review> GetReviews(Restaurant restaurant)
         {
             // We get the reviews such that, we find the restuarant that matches the restaurant being passed, 
