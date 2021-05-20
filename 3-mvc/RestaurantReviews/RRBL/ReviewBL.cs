@@ -24,8 +24,11 @@ namespace RRBL
             //call get reviews from my repodb.
             List<Review> restaurantReviews = _repo.GetReviews(restaurant);
             int averageRating = 0;
-            restaurantReviews.ForEach(review => averageRating += review.Rating);
-            averageRating = averageRating / restaurantReviews.Count;
+            if(restaurantReviews.Count > 0)
+            {
+                restaurantReviews.ForEach(review => averageRating += review.Rating);
+                averageRating = averageRating / restaurantReviews.Count;
+            }
             return new Tuple<List<Review>, int>(restaurantReviews, averageRating);
         }
     }
