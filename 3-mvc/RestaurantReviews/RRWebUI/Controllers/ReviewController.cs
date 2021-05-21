@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RRBL;
 using RRModels;
 using RRWebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace RRWebUI.Controllers
 {
@@ -20,10 +18,11 @@ namespace RRWebUI.Controllers
             _restaurantBL = restaurantBL;
             _reviewBL = reviewBL;
         }
+
         // GET: ReviewController
         public ActionResult Index(int id)
         {
-            //Viewbag and ViewData 
+            //Viewbag and ViewData
             // Viewbag, dynamically infers a type....
             // Viewdata stores everything as an object
             // These two sharwe the same memory, they're both dictionary types that store things
@@ -55,7 +54,7 @@ namespace RRWebUI.Controllers
         {
             try
             {
-                if(ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     _reviewBL.AddReview(_restaurantBL.GetRestaurantById(review.RestauranId), new Review { Rating = review.Rating, Description = review.Description });
                     return RedirectToAction(nameof(Index), new { id = review.RestauranId });
@@ -67,7 +66,5 @@ namespace RRWebUI.Controllers
                 return View();
             }
         }
-
-      
     }
 }

@@ -1,21 +1,23 @@
-using System.Collections.Generic;
-using Model = RRModels;
-using System.Linq;
 using RRModels;
-using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+
+using Model = RRModels;
 
 namespace RRDL
 {
     public class RepoDB : IRepository
     {
         private RestaurantDBContext _context;
+
         public RepoDB(RestaurantDBContext context)
         {
             _context = context;
         }
+
         public Model.Restaurant AddRestaurant(Model.Restaurant restaurant)
         {
-            //This records a change in the context change tracker that we want to add this particular entity to the 
+            //This records a change in the context change tracker that we want to add this particular entity to the
             // db
             _context.Restaurants.Add(
                 restaurant
@@ -73,11 +75,11 @@ namespace RRDL
 
         public List<Review> GetReviews(Restaurant restaurant)
         {
-            // We get the reviews such that, we find the restuarant that matches the restaurant being passed, 
+            // We get the reviews such that, we find the restuarant that matches the restaurant being passed,
             // we get the id of that specific restaurant, compare it to the FK references in the Reviews table
             // get the reviews that match the condition
             //  transform the entity type reviews to a model type review
-            // Immediately execute the linq query by calling tolist, which takes the data from the db and puts it in 
+            // Immediately execute the linq query by calling tolist, which takes the data from the db and puts it in
             // a list
 
             //Finding the restaurant from the db, to be able to take advantage of the Id property the model doesn't have (well now it does)

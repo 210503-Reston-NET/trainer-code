@@ -1,5 +1,3 @@
-using System;
-
 namespace RRWebUI.Models
 {
     public class ErrorViewModel

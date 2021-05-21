@@ -1,10 +1,6 @@
 ﻿using RRModels;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RRWebUI.Models
 {
@@ -21,16 +17,19 @@ namespace RRWebUI.Models
             City = restaurant.City;
             State = restaurant.State;
         }
+
         public RestaurantVM()
         {
-
         }
+
         public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }
+
         [Required]
         public string City { get; set; }
+
         [DisplayName("State or Province")]
         [Required]
         public string State { get; set; }

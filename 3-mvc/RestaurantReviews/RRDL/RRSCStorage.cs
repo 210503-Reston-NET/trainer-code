@@ -1,5 +1,6 @@
-using System.Collections.Generic;
 using RRModels;
+using System.Collections.Generic;
+
 namespace RRDL
 {
     /// <summary>

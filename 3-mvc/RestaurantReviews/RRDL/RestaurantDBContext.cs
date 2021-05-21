@@ -1,22 +1,22 @@
 using Microsoft.EntityFrameworkCore;
 using RRModels;
+
 namespace RRDL
 {
     public class RestaurantDBContext : DbContext
     {
-        // constructor needed to pass in connection string 
+        // constructor needed to pass in connection string
         public RestaurantDBContext() : base()
         {
-
         }
+
         public RestaurantDBContext(DbContextOptions options) : base(options)
         {
-
         }
 
-
-        //Declaring entities 
+        //Declaring entities
         public DbSet<Restaurant> Restaurants { get; set; }
+
         public DbSet<Review> Reviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,6 +28,5 @@ namespace RRDL
             .Property(review => review.Id)
             .ValueGeneratedOnAdd();
         }
-
     }
 }

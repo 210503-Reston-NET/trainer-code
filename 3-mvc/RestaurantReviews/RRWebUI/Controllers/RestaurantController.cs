@@ -1,22 +1,21 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using RRBL;
-using RRWebUI.Models;
 using RRModels;
+using RRWebUI.Models;
+using System.Linq;
 
 namespace RRWebUI.Controllers
 {
     public class RestaurantController : Controller
     {
         private IRestaurantBL _restaurantBL;
+
         public RestaurantController(IRestaurantBL restaurantBL)
         {
             _restaurantBL = restaurantBL;
         }
+
         // GET: RestaurantController
         // Actions are public methods in controllers that respond to client requests
         // You can have specific actions respond to specific requests,
@@ -25,7 +24,7 @@ namespace RRWebUI.Controllers
         public ActionResult Index()
         {
             // You have different kinds of Views:
-            // Strongly typed views - tied to a model, you declare the model at the top of the page with 
+            // Strongly typed views - tied to a model, you declare the model at the top of the page with
             //                          @model DataType
             // Weakly typed views - not tied to a model. You can still pass data to it via, viewbag
             //                      viewdata, tempdata etc
@@ -64,7 +63,6 @@ namespace RRWebUI.Controllers
                 }
                 return View();
             }
-                
             catch
             {
                 return View();
@@ -84,9 +82,9 @@ namespace RRWebUI.Controllers
         {
             try
             {
-                if(ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
-                    _restaurantBL.UpdateRestaurant(new Restaurant(restaurantVM.Id, restaurantVM.Name,restaurantVM.City, restaurantVM.State));
+                    _restaurantBL.UpdateRestaurant(new Restaurant(restaurantVM.Id, restaurantVM.Name, restaurantVM.City, restaurantVM.State));
                     return RedirectToAction(nameof(Index));
                 }
                 return View();

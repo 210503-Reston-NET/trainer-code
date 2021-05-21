@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+
 /// <summary>
 /// Namespace for the models/custom data structures involved in Restaurant Reviews
 /// </summary>
 namespace RRModels
 {
     /// <summary>
-    /// Data structure used to define a restaurant 
+    /// Data structure used to define a restaurant
     /// </summary>
     public class Restaurant
     {
@@ -19,27 +20,32 @@ namespace RRModels
         // *Note that properties are analogous to Java getter and setter
         // * Property naming convention uses PascalCase (like methods)
         private string _city;
+
         public Restaurant(string name, string city, string state)
         {
             this.Name = name;
             this.City = city;
             this.State = state;
         }
+
         public Restaurant()
         {
-
         }
+
         // Constructor chaining
         public Restaurant(int id, string name, string city, string state) : this(name, city, state)
         {
             this.Id = id;
         }
+
         public int Id { get; set; }
+
         /// <summary>
         /// This describes the name of your restaurant
         /// </summary>
         /// <value></value>
         public string Name { get; set; }
+
         /// <summary>
         /// This describes the location
         /// </summary>
@@ -53,20 +59,24 @@ namespace RRModels
                 _city = value;
             }
         }
+
         /// <summary>
         /// This describes the location
         /// </summary>
         /// <value></value>
         public string State { get; set; }
+
         /// <summary>
         /// This contains the review of a particular restaurant
         /// </summary>
         /// <value></value>
         public List<Review> Reviews { get; set; }
+
         public override string ToString()
         {
             return $" Name: {Name} \n Location: {City}, {State}";
         }
+
         public bool Equals(Restaurant restaurant)
         {
             return this.Name.Equals(restaurant.Name) && this.City.Equals(restaurant.City) && this.State.Equals(restaurant.State);

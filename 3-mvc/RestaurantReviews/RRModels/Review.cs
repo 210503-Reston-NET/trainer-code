@@ -1,9 +1,11 @@
 using System;
+
 namespace RRModels
 {
     public class Review
     {
         private int _rating;
+
         /// <summary>
         /// This describes the overall numeric rating of a restaurant
         /// </summary>
@@ -13,8 +15,10 @@ namespace RRModels
             this.Rating = rating;
             this.Description = desc;
         }
+
         public Review()
         { }
+
         public int Rating
         {
             get { return _rating; }
@@ -28,13 +32,16 @@ namespace RRModels
                 _rating = value;
             }
         }
+
         /// <summary>
         /// Verbose description of the dining experience
         /// </summary>
         /// <value></value>
         public string Description { get; set; }
+
         //FK reference to the restaurant
         public int RestaurantId { get; set; }
+
         public int Id { get; set; }
 
         public override string ToString()
