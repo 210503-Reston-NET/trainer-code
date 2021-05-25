@@ -16,3 +16,26 @@
    - if you're not logged in, log in
 2. retag the image you want to publish using the command: `docker build -t <dockerhub-username>/<reponame>:tagname .`
 3. push it to dockerhub by running the command: `docker push <dockerhub-username>/<reponame>:tagname`
+
+# Snake docker
+
+## Snake from an image on dockerhub
+
+`docker pull aschil/snake`
+`docker run -p HostPort:8080 -t aschil/snake`
+
+## Snake on the terminal
+
+```
+mkdir snakedocker
+cd snakedocker
+nano Dockerfile
+
+FROM ubuntu:18.04
+RUN apt-get update && apt-get install -y libncurses5-dev && apt-get install -y nsnake
+CMD ["/usr/games/nsnake"]
+
+docker build -t snake:auto .
+
+docker run -it snake:auto
+```
