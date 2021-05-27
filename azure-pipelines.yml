@@ -6,8 +6,7 @@
 trigger:
 - main
 
-pool: 
-  vmImage: 'windows-latest'
+pool: Default
 
 variables:
   solution: '**/4-devops/RestaurantReviews/*.sln'
