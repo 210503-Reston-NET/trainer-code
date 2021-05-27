@@ -6,7 +6,8 @@
 trigger:
 - main
 
-pool: Default
+pool:
+  vmImage: 'windows-latest'
 
 variables:
   solution: '**/4-devops/RestaurantReviews/*.sln'
@@ -37,7 +38,13 @@ steps:
   inputs:
     command: 'test'
     projects: '**/4-devops/RestaurantReviews/RRTests/*.csproj'
+    arguments: --configuration $(buildConfiguration) --collect "Code Coverage"
 
+# This publishes the code coverage results and includes it in the code analysis
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '**/corbertura/coverage.xml'
 - task: SonarCloudAnalyze@1
   displayName: Run Code Analysis
 - task: SonarCloudPublish@1
