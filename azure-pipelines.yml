@@ -15,7 +15,13 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-#basic pipeline of restoring, building, and testing
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'RRSonarCloud'
+    organization: '210503-reston-net'
+    scannerMode: 'MSBuild'
+    projectKey: '210503-Reston-NET_trainer-code'
+    projectName: 'trainer-code'
 - task: DotNetCoreCLI@2
   displayName: Restore
   inputs:
@@ -33,6 +39,10 @@ steps:
     command: 'test'
     projects: '**/4-devops/RestaurantReviews/RRTests/*.csproj'
 
+- task: SonarCloudAnalyze@1
+  displayName: Run Code Analysis
+- task: SonarCloudPublish@1
+  displayName: Publish Code Analysis
 - task: DotNetCoreCLI@2
   displayName: Publish
   inputs:
