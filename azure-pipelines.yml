@@ -6,7 +6,8 @@
 trigger:
 - main
 
-pool: Default
+pool: 
+  vm-image: windows-latest
 
 steps:
 - script: echo Hello, world!
