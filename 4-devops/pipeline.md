@@ -81,7 +81,7 @@
 
 ## Self Hosted Agents
 
-- The docker agent Garrett built (repoLink)[https://github.com/210503-Reston-NET/DockerAgent]
+- The docker agent Garrett built [repoLink](https://github.com/210503-Reston-NET/DockerAgent)
 
 ## Further reading:
 
