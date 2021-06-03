@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace RRREST.Controllers
 {
-    [Route("api/Restuarants")]
+    [Route("api/Restaurants")]
     [ApiController]
     public class RestaurantController : ControllerBase
     {
@@ -21,43 +21,43 @@ namespace RRREST.Controllers
         }
         // GET: api/<RestaurantController>
         [HttpGet]
-        public IActionResult GetAllRestaurants()
+        public async Task<IActionResult> GetAllRestaurantsAsync()
         {
             // No more VMs yayyyyyy
             // But, you may have a need to still come up with some version of your data to send across
             // a network
             // You'd call this version of your model a DTO (data transfer object) 
             // You can use a DTO to aggregate data, leave out data that the client doesn't really need, etc
-            return Ok(_restaurantBL.GetAllRestaurants());
+            return Ok(await _restaurantBL.GetAllRestaurantsAsync());
         }
 
         // GET api/<RestaurantController>/5
         [HttpGet("{id}")]
-        public IActionResult GetRestaurantById(int id)
+        public async Task<IActionResult> GetRestaurantByIdAsync(int id)
         {
-            return Ok(_restaurantBL.GetRestaurantById(id));
+            return Ok(await _restaurantBL.GetRestaurantByIdAsync(id));
         }
 
         // POST api/<RestaurantController>
         [HttpPost]
-        public IActionResult AddNewRestaurant([FromBody] Restaurant newRestaurant)
+        public async Task<IActionResult> AddNewRestaurantAsync([FromBody] Restaurant newRestaurant)
         {
-            return Created("api/Restaurant", _restaurantBL.AddRestaurant(newRestaurant));
+            return Created("api/Restaurant", await _restaurantBL.AddRestaurantAsync(newRestaurant));
         }
 
         // PUT api/<RestaurantController>/5
         [HttpPut("{id}")]
-        public IActionResult UpdateRestaurant(int id, [FromBody] Restaurant updatedRestaurant)
+        public async Task<IActionResult> UpdateRestaurantAsync(int id, [FromBody] Restaurant updatedRestaurant)
         {
-            _restaurantBL.UpdateRestaurant(updatedRestaurant);
+            await _restaurantBL.UpdateRestaurantAsync(updatedRestaurant);
             return NoContent();
         }
 
         // DELETE api/<RestaurantController>/5
         [HttpDelete("{id}")]
-        public IActionResult DeleteRestaurant(int id)
+        public async Task<IActionResult> DeleteRestaurantAsync(int id)
         {
-            _restaurantBL.DeleteRestaurant(_restaurantBL.GetRestaurantById(id));
+            await _restaurantBL.DeleteRestaurantAsync(await _restaurantBL.GetRestaurantByIdAsync(id));
             return NoContent();
         }
     }

@@ -1,20 +1,21 @@
 using RRModels;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace RRBL
 {
     public interface IRestaurantBL
     {
-        List<Restaurant> GetAllRestaurants();
+        Task<List<Restaurant>> GetAllRestaurantsAsync();
 
-        Restaurant AddRestaurant(Restaurant restaurant);
+        Task<Restaurant> AddRestaurantAsync(Restaurant restaurant);
 
-        Restaurant GetRestaurant(Restaurant restaurant);
+        Task<Restaurant> GetRestaurantAsync(Restaurant restaurant);
 
-        Restaurant GetRestaurantById(int id);
+        Task<Restaurant> GetRestaurantByIdAsync(int id);
 
-        Restaurant DeleteRestaurant(Restaurant restaurant);
+        Task<Restaurant> DeleteRestaurantAsync(Restaurant restaurant);
 
-        Restaurant UpdateRestaurant(Restaurant restaurant);
+        Task<Restaurant> UpdateRestaurantAsync(Restaurant restaurant);
     }
 }

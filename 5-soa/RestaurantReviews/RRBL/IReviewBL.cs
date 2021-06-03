@@ -1,13 +1,14 @@
 using RRModels;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace RRBL
 {
     public interface IReviewBL
     {
-        Review AddReview(Restaurant restaurant, Review review);
+        Task<Review> AddReviewAsync(Restaurant restaurant, Review review);
 
-        Tuple<List<Review>, int> GetReviews(Restaurant restaurant);
+        Task<Tuple<List<Review>, int>> GetReviewsAsync(Restaurant restaurant);
     }
 }

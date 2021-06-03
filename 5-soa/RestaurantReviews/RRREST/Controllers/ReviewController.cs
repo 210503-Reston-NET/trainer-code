@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RRBL;
 using RRModels;
+using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,18 +22,18 @@ namespace RRREST.Controllers
 
         // GET: api/<ReviewController>
         [HttpGet]
-        public IActionResult GetAllReviews(int restaurantId)
+        public async Task<IActionResult> GetAllReviewsAsync(int restaurantId)
         {
-            return Ok(_reviewBL.GetReviews(_restaurantBL.GetRestaurantById(restaurantId)));
+            return Ok(await _reviewBL.GetReviewsAsync(await _restaurantBL.GetRestaurantByIdAsync(restaurantId)));
         }
 
         // POST api/<ReviewController>
         [HttpPost]
-        public IActionResult AddReview(int restaurantId, [FromBody] Review newReview)
+        public async Task<IActionResult> AddReviewAsync(int restaurantId, [FromBody] Review newReview)
         {
             return Created($"/api/Restaurants/{restaurantId}/Reviews",
-                _reviewBL.AddReview(
-                    _restaurantBL.GetRestaurantById(restaurantId),
+                await _reviewBL.AddReviewAsync(
+                    await _restaurantBL.GetRestaurantByIdAsync(restaurantId),
                     new Review(newReview.Rating, newReview.Description
                     )));
         }

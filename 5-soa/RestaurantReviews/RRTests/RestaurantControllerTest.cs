@@ -17,7 +17,7 @@ namespace RRTests
         {
             //Arrange
             var mockBL = new Mock<IRestaurantBL>();
-            mockBL.Setup(x => x.GetAllRestaurants()).Returns(
+            mockBL.Setup(x => x.GetAllRestaurantsAsync()).Returns(
                 new List<Restaurant>()
                 {
                     new Restaurant("Whataburger", "Dallas", "Texas"),
