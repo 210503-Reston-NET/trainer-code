@@ -87,7 +87,7 @@ namespace RRDL
             //Entity.Restaurant foundResto = _context.Restaurants.FirstOrDefault(resto => resto.Name == restaurant.Name && resto.City == restaurant.City && resto.State == restaurant.State);
 
             return await _context.Reviews.AsNoTracking().Where(
-                review => review.RestaurantId == GetRestaurantAsync(restaurant).Id
+                review => review.RestaurantId == restaurant.Id
                 ).Select(
                     review => review
                 ).ToListAsync();
