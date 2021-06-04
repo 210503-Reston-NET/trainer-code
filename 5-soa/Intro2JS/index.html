@@ -43,6 +43,37 @@
             <button class="btn btn-warning" onclick="console.log(add())">Click this</button>
             <button class="btn btn-warning" onclick="console.log(addAgain())">Now click this</button>
         </div>
+        <div class="container">
+            <h2>AJAX & Fetch (yet another demo)</h2>
+            <div class="container">
+                <h3>Let's get some pokemons</h3>
+                <form action="">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="needToFindPokemon"
+                            placeholder="Enter the pokemon name or id">
+                        <input type="button" class="btn btn-secondary" value="Find Pokemon" onclick="GetPokemon()">
+                    </div>
+                </form>
+                <!--Where I'll store the result of my search, we'll be manipulating this area in a bit-->
+                <div class="container foundPokemon">
+                    <img src="" />
+                </div>
+            </div>
+            <div class="container">
+                <h3>Let's get some digimons</h3>
+                <form action="">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="needToFindDigimon"
+                            placeholder="Enter the digimon name ">
+                        <input type="button" class="btn btn-secondary" value="Find Digimon" onclick="GetDigimon()">
+                    </div>
+                </form>
+                <!--Where I'll store the result of my search, we'll be manipulating this area in a bit-->
+                <div class="container foundDigimon">
+                    <img src="" />
+                </div>
+            </div>
+        </div>
     </div>
     <script>
         // Basic Function
@@ -66,6 +97,7 @@
         let lambda = () => console.log("I'm a lambda");
     </script>
     <script src="encapsulation.js"></script>
+    <script src="gottacatchemall.js"></script>
 </body>
 
 </html>
