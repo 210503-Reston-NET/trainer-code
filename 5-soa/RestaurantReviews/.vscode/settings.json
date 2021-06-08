@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/0c61e2ed-4a6a-437f-9a03-1f223527220b/resourceGroups/2105-may03-net-mars-rg/providers/Microsoft.Web/sites/RestaurantRevAPI",
+    "appService.deploySubpath": "RRREST\\publish"
+}
