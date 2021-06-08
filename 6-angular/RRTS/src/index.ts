@@ -35,3 +35,30 @@ function PrintRestaurantsTable(restaurants: restaurant[]): void {
 
     }
 }
+
+function AddRestaurant(): void {
+    let resto2Add: restaurant =
+    {
+        id: 0,
+        name: document.querySelector<HTMLInputElement>('#name')!.value,
+        city: document.querySelector<HTMLInputElement>('#city')!.value,
+        state: document.querySelector<HTMLInputElement>('#state')!.value,
+        reviews: null
+
+    };
+    let xhr: XMLHttpRequest = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status > 199 && this.status < 300) {
+            alert('restaurant added!');
+            document.querySelector<HTMLInputElement>('#name')!.value = '';
+            document.querySelector<HTMLInputElement>('#city')!.value = '';
+            document.querySelector<HTMLInputElement>('#state')!.value = '';
+            GetAllRestaurants();
+        }
+    }
+
+    xhr.open('POST', 'https://restaurantrevapi.azurewebsites.net/api/restaurants', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+    xhr.send(JSON.stringify(resto2Add));
+}
