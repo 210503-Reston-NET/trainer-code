@@ -31,6 +31,13 @@ namespace RRREST
             services.AddScoped<IRestaurantBL, RestaurantBL>();
             services.AddScoped<IReviewBL, ReviewBL>();
             services.AddScoped<IRepository, RepoDB>();
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.WithOrigins("http://127.0.0.1:5500/index.html").AllowAnyMethod().AllowAnyHeader();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +53,8 @@ namespace RRREST
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
