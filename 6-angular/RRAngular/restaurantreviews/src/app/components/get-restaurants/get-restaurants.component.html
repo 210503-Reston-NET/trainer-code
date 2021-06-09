@@ -1,0 +1,16 @@
+<div class="container transparent">
+    <table class="table">
+        <thead>
+            <th>Restaurant Name</th>
+            <th>City</th>
+            <th>State</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let restaurant of restaurants;">
+                <td>{{restaurant.name}}</td>
+                <td>{{restaurant.city}}</td>
+                <td>{{restaurant.state}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

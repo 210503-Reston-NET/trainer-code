@@ -62,3 +62,34 @@ Flags for the compiler. When the compiler sees them it does something with the i
 Used to distinguish the functionality of your classes, functions, fields.
 
 [List of decorators in Angular](https://medium.com/@madhavmahesh/list-of-all-decorators-available-in-angular-71bdf4ad6976)
+
+## Working with Angular
+
+### Promises vs Observables
+
+Both of them represent async operations that result in some form of return. Promises are closed after the result has been returned. Once it is fulfilled its done. Observables are still open just in case, additional results can be returned.
+
+### Life Cycle hooks
+
+1. ngOnInit()
+   - called upon component initialization
+2. ngOnChanges(changes: SimpleChanges)
+   - called when something changes on the component
+3. etc
+   - go research the rest
+
+### Data Binding in Angular
+
+1. Interpolation
+   - This is from ts to template
+   - You get the data and present it to the template
+
+### Directives
+
+- used to alter your template
+
+1. Structural
+   - used to alter the structure, i.e., dom manipulate the template to dynamically create elements as needed
+   - *ngFor, *ngIf, \*ngSwitch
+2. Attribute
+3. Custome
