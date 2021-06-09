@@ -83,6 +83,15 @@ Both of them represent async operations that result in some form of return. Prom
 1. Interpolation
    - This is from ts to template
    - You get the data and present it to the template
+   - {{property}}
+2. Property Binding
+   - [property name here]
+3. Event Binding
+   - (event name here)
+4. Two Way
+   - This is from ts to template and vv
+   - Data that you set on the template is also being change in the logic
+   - [()]
 
 ### Directives
 
@@ -92,4 +101,4 @@ Both of them represent async operations that result in some form of return. Prom
    - used to alter the structure, i.e., dom manipulate the template to dynamically create elements as needed
    - *ngFor, *ngIf, \*ngSwitch
 2. Attribute
-3. Custome
+3. Custom

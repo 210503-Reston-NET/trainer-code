@@ -19,5 +19,8 @@ export class RestRevApiService {
   GetAllRestaurants(): Promise<restaurant[]> {
     return this.http.get<restaurant[]>(this.baseURL).toPromise();
   }
+  AddARestaurant(newRestaurant: restaurant): Promise<restaurant> {
+    return this.http.post<restaurant>(this.baseURL, newRestaurant).toPromise();
+  }
 
 }
