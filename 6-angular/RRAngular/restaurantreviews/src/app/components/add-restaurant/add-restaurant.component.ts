@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { restaurant } from 'src/app/models/restaurant';
 import { RestRevApiService } from 'src/app/services/restrevapi.service';
 
@@ -16,7 +17,7 @@ export class AddRestaurantComponent implements OnInit {
     reviews: null
   }
 
-  constructor(private restaurantService: RestRevApiService) { }
+  constructor(private restaurantService: RestRevApiService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -26,7 +27,11 @@ export class AddRestaurantComponent implements OnInit {
       (
         result => {
           alert(`${result.name} has been added`);
+          this.GoToRestaurants();
         }
       );
+  }
+  GoToRestaurants() {
+    this.router.navigate(['restaurants']);
   }
 }
