@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { review } from 'src/app/models/review';
 import { RestRevApiService } from 'src/app/services/restrevapi.service';
 
@@ -14,12 +15,19 @@ export class AddReviewComponent implements OnInit {
     rating: 0,
     description: ''
   }
-  constructor(private restaurantService: RestRevApiService) { }
+  constructor(private restaurantService: RestRevApiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(
+      params => {
+        this.newReview.restaurantId = params.id
+      }
+    )
   }
 
   onSubmit(): void {
     this.restaurantService.AddRestaurantReview(this.newReview);
+    alert('review added');
+    this.router.navigate(['restaurantReviews'], { queryParams: { restaurantId: this.newReview.restaurantId } });
   }
 }

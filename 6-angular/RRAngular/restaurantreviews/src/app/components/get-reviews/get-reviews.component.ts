@@ -44,6 +44,6 @@ export class GetReviewsComponent implements OnInit {
     )
   }
   AddReview(restaurantId: number) {
-
+    this.router.navigate(['addReview'], { queryParams: { id: restaurantId } });
   }
 }
