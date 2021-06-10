@@ -11,7 +11,6 @@ import { RestRevApiService } from 'src/app/services/restrevapi.service';
 export class GetRestaurantsComponent implements OnInit {
 
   restaurants: restaurant[] = [];
-
   constructor(private restaurantService: RestRevApiService, private router: Router) { }
 
   //LC hook. There are others. (go research!)

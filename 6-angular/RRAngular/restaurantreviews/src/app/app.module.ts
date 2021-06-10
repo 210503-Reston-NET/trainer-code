@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { GetReviewsComponent } from './components/get-reviews/get-reviews.component';
 import { AddReviewComponent } from './components/add-review/add-review.component';
 import { EditRestaurantComponent } from './components/edit-restaurant/edit-restaurant.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { StarRatingsComponent } from './components/star-ratings/star-ratings.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { EditRestaurantComponent } from './components/edit-restaurant/edit-resta
     AddRestaurantComponent,
     GetReviewsComponent,
     AddReviewComponent,
-    EditRestaurantComponent
+    EditRestaurantComponent,
+    NavBarComponent,
+    StarRatingsComponent
   ],
   imports: [
     BrowserModule,

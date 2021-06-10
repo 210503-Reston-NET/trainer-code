@@ -3,7 +3,9 @@
             (click)="AddReview(restaurant.id)"></i></h2>
     <h4>{{restaurant.city}}, {{restaurant.state}}</h4>
     <div *ngIf="restrevs.reviews.length > 0 else noReviews;">
-        <h6>Overall Rating: {{restrevs.average}}</h6>
+        <p>
+            <app-star-ratings [rating]='restrevs.average'></app-star-ratings>
+        </p>
         <table class="table">
             <thead>
                 <th>Rating</th>
@@ -11,7 +13,9 @@
             </thead>
             <tbody>
                 <tr *ngFor="let review of restrevs.reviews;">
-                    <td>{{review.rating}}</td>
+                    <td>
+                        <app-star-ratings [rating]='review.rating'></app-star-ratings>
+                    </td>
                     <td>{{review.description}}</td>
                 </tr>
             </tbody>
