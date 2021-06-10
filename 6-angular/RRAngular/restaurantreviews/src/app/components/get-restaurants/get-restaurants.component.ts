@@ -22,4 +22,8 @@ export class GetRestaurantsComponent implements OnInit {
   GoToAddRestaurant() {
     this.router.navigate(['addRestaurant']);
   }
+
+  GoToReviews(restaurantId: number) {
+    this.router.navigate(['restaurantReviews'], { queryParams: { restaurantId: restaurantId } });
+  }
 }

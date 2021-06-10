@@ -102,3 +102,33 @@ Both of them represent async operations that result in some form of return. Prom
    - *ngFor, *ngIf, \*ngSwitch
 2. Attribute
 3. Custom
+
+### Routing
+
+#### Module:
+
+Routing Module, needs to be imported in the app module
+
+#### Where do I set up my routes?
+
+app-routing.module.ts, in this file, there exists a const array of routes called routes, in that array the paths are declared using key value pairs to declare paths and the components that they show. You can also declare other characteristics of that path, such as auth guards.
+
+#### Working with routes
+
+Using the <router-outlet> tag as a placeholder for the views you want to present depending on the routes.
+
+#### Navigate between routes? (How do I navigate between components?)
+
+1. routerLink = "path that I set in my app-routing.module.ts
+2. directly accessing the path/component via the url
+3. using a router object, you navigate via the router.navigate(['path here'], extra stuff here like query params) method
+
+### Sharing data between components
+
+We need to be able to pass data between components, how do we accomplish this?
+
+1. Use query params
+2. Decorators
+   1. @Input decorator, you can pass info from parent component to child component, so you can set the value of child fields in the parent component
+   2. @Output decorator, for passing info from child to parent
+3. Some form of subscription, you would have a service with an observable that contains data that you share amongst components, this is what the auth service utilizes in auth 0 to check whether a person is logged in or not

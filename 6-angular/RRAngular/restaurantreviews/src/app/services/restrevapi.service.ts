@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { rating } from '../models/rating';
 import { restaurant } from '../models/restaurant';
+import { review } from '../models/review';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +23,18 @@ export class RestRevApiService {
   }
   AddARestaurant(newRestaurant: restaurant): Promise<restaurant> {
     return this.http.post<restaurant>(this.baseURL, newRestaurant).toPromise();
+  }
+
+  GetRestaurantReviews(restaurantId: number): Promise<rating> {
+    return this.http.get<rating>(`${this.baseURL}/${restaurantId}/reviews`).toPromise();
+  }
+
+  GetRestaurant(restaurantId: number): Promise<restaurant> {
+    return this.http.get<restaurant>(`${this.baseURL}/${restaurantId}`).toPromise();
+  }
+
+  AddRestaurantReview(newReview: review): Promise<review> {
+    return this.http.post<review>(`${this.baseURL}/${newReview.restaurantId}/reviews`, newReview).toPromise();
   }
 
 }

@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { GetRestaurantsComponent } from './components/get-restaurants/get-restaurants.component';
 import { AddRestaurantComponent } from './components/add-restaurant/add-restaurant.component';
 import { FormsModule } from '@angular/forms';
+import { GetReviewsComponent } from './components/get-reviews/get-reviews.component';
+import { AddReviewComponent } from './components/add-review/add-review.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GetRestaurantsComponent,
-    AddRestaurantComponent
+    AddRestaurantComponent,
+    GetReviewsComponent,
+    AddReviewComponent
   ],
   imports: [
     BrowserModule,
