@@ -26,4 +26,27 @@ export class GetRestaurantsComponent implements OnInit {
   GoToReviews(restaurantId: number) {
     this.router.navigate(['restaurantReviews'], { queryParams: { restaurantId: restaurantId } });
   }
+
+  GoToEditRestaurant(restaurantId: number) {
+    this.router.navigate(['editRestaurant'], { queryParams: { id: restaurantId } });
+  }
+  DeleteRestaurant(restaurantId: number, restaurantName: string) {
+    //there's this thing called event propagation
+    // capturing and bubbling
+    // capturing - going from the parent to the child element that triggers an event
+    // bubbling - when you trigger similar events from child to parent 
+    event.stopPropagation();
+    if (confirm(`Are you sure you want to delete ${restaurantName}?`).valueOf()) {
+      this.restaurantService.DeleteRestaurant(restaurantId).then(
+        () => {
+          alert(`${restaurantName} has been deleted`);
+          this.restaurantService.GetAllRestaurants().then(
+            result => {
+              this.restaurants = result;
+            }
+          )
+        }
+      )
+    }
+  }
 }

@@ -8,6 +8,7 @@ import { AddRestaurantComponent } from './components/add-restaurant/add-restaura
 import { FormsModule } from '@angular/forms';
 import { GetReviewsComponent } from './components/get-reviews/get-reviews.component';
 import { AddReviewComponent } from './components/add-review/add-review.component';
+import { EditRestaurantComponent } from './components/edit-restaurant/edit-restaurant.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AddReviewComponent } from './components/add-review/add-review.component
     GetRestaurantsComponent,
     AddRestaurantComponent,
     GetReviewsComponent,
-    AddReviewComponent
+    AddReviewComponent,
+    EditRestaurantComponent
   ],
   imports: [
     BrowserModule,

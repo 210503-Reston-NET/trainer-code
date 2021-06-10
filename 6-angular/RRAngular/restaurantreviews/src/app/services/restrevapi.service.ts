@@ -37,4 +37,11 @@ export class RestRevApiService {
     return this.http.post<review>(`${this.baseURL}/${newReview.restaurantId}/reviews`, newReview).toPromise();
   }
 
+  EditRestaurant(restaurant: restaurant): Promise<void> {
+    return this.http.put<void>(`${this.baseURL}/${restaurant.id}`, restaurant).toPromise();
+  }
+
+  DeleteRestaurant(restaurantId: number): Promise<void> {
+    return this.http.delete<void>(`${this.baseURL}/${restaurantId}`).toPromise();
+  }
 }

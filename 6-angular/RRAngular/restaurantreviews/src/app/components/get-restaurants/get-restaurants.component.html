@@ -11,6 +11,9 @@
                 <td>{{restaurant.name}}</td>
                 <td>{{restaurant.city}}</td>
                 <td>{{restaurant.state}}</td>
+                <td><i class="fa fa-pencil-square-o pencil" aria-hidden="true"
+                        (click)='GoToEditRestaurant(restaurant.id)'> </i>| <i class="fa fa-trash trash"
+                        aria-hidden="true" (click)='DeleteRestaurant(restaurant.id, restaurant.name)'></i></td>
             </tr>
         </tbody>
     </table>
