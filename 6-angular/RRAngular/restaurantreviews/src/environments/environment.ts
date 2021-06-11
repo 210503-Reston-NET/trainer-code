@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  RESTREVAPI: 'https://restaurantrevapi.azurewebsites.net/api/restaurants',
+  AUTH_DOMAIN: 'marsthemartian.us.auth0.com',
+  AUTH_CLIENT_ID: 'Rr6OsTEe7nHQaKENyYipiLG0uwdpxFKz'
 };
 
 /*

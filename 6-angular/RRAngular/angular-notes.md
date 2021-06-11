@@ -132,3 +132,15 @@ We need to be able to pass data between components, how do we accomplish this?
    1. @Input decorator, you can pass info from parent component to child component, so you can set the value of child fields in the parent component
    2. @Output decorator, for passing info from child to parent
 3. Some form of subscription, you would have a service with an observable that contains data that you share amongst components, this is what the auth service utilizes in auth 0 to check whether a person is logged in or not
+
+### Pipes
+
+Pipes are used to transform data, like strings, currency amounts, etc, for display. Pipes can do other things, like the async pipe, that forces an Observable/Promise to execute and takes the result. To apply a pipe, you use the | operator. You can also create custom pipes for data transformation.
+
+- Some useful pipes:
+  - aynsc pipe (to execute observables and promises to get their values)
+  - json pipe (to check the model/representation that you're receiving.)
+
+### Filters
+
+A way for you to select data you care about. The exists a filter method that allows you to filter out data, from a list (not angular specific, it's actually JS). Filters have a read only access to your data.

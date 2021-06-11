@@ -11,6 +11,9 @@ import { AddReviewComponent } from './components/add-review/add-review.component
 import { EditRestaurantComponent } from './components/edit-restaurant/edit-restaurant.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { StarRatingsComponent } from './components/star-ratings/star-ratings.component';
+import { AuthModule } from '@auth0/auth0-angular';
+import { AuthComponent } from './components/auth/auth.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,13 +24,18 @@ import { StarRatingsComponent } from './components/star-ratings/star-ratings.com
     AddReviewComponent,
     EditRestaurantComponent,
     NavBarComponent,
-    StarRatingsComponent
+    StarRatingsComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AuthModule.forRoot({
+      domain: environment.AUTH_DOMAIN,
+      clientId: environment.AUTH_CLIENT_ID
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

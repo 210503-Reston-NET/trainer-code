@@ -1,5 +1,5 @@
 <div class="container transparent">
-    <h2>{{restaurant.name}} <i class="fa fa-plus-square-o plus" aria-hidden="true"
+    <h2>{{restaurant.name }} <i class="fa fa-plus-square-o plus" aria-hidden="true"
             (click)="AddReview(restaurant.id)"></i></h2>
     <h4>{{restaurant.city}}, {{restaurant.state}}</h4>
     <div *ngIf="restrevs.reviews.length > 0 else noReviews;">

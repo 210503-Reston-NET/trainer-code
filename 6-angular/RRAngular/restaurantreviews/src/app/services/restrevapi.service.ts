@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { rating } from '../models/rating';
 import { restaurant } from '../models/restaurant';
 import { review } from '../models/review';
@@ -8,7 +9,7 @@ import { review } from '../models/review';
   providedIn: 'root'
 })
 export class RestRevApiService {
-  baseURL: string = 'https://restaurantrevapi.azurewebsites.net/api/restaurants';
+  baseURL: string = environment.RESTREVAPI;
 
   constructor(private http: HttpClient) { }
 

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '@auth0/auth0-angular';
 import { AddRestaurantComponent } from './components/add-restaurant/add-restaurant.component';
 import { AddReviewComponent } from './components/add-review/add-review.component';
 import { EditRestaurantComponent } from './components/edit-restaurant/edit-restaurant.component';
@@ -13,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'addRestaurant',
-    component: AddRestaurantComponent
+    component: AddRestaurantComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'restaurantReviews',
@@ -21,11 +23,13 @@ const routes: Routes = [
   },
   {
     path: 'addReview',
-    component: AddReviewComponent
+    component: AddReviewComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'editRestaurant',
-    component: EditRestaurantComponent
+    component: EditRestaurantComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
