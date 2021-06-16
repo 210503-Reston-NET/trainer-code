@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace RRREST.Controllers
 {
-    [Route("api/Restaurants")]
+    [Route("restaurants")]
     [ApiController]
     public class RestaurantController : ControllerBase
     {

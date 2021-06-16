@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RRREST.Controllers
 {
-    [Route("api/Restaurants/{restaurantId}/Reviews")]
+    [Route("restaurants/{restaurantId}/reviews")]
     [ApiController]
     public class ReviewController : ControllerBase
     {

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  RESTREVAPI: 'https://restaurantrevapi.azurewebsites.net/api/restaurants'
+  RESTREVAPI: 'http://52.247.22.168/api/restaurants'
 };
 
 /*
