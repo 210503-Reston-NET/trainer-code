@@ -37,7 +37,7 @@ namespace RRDL
                 {
                     Rating = review.Rating,
                     Description = review.Description,
-                    RestaurantId = GetRestaurantAsync(restaurant).Id
+                    RestaurantId = restaurant.Id
                 }
             );
             await _context.SaveChangesAsync();
@@ -71,7 +71,7 @@ namespace RRDL
 
         public async Task<Restaurant> GetRestaurantByIdAsync(int id)
         {
-            return await _context.Restaurants.FindAsync(id);
+            return await _context.Restaurants.AsNoTracking().FirstAsync(restaurant => restaurant.Id == id);
         }
 
         public async Task<List<Review>> GetReviewsAsync(Restaurant restaurant)

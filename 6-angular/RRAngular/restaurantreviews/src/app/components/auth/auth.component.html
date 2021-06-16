@@ -1,0 +1,9 @@
+<div class="d-flex flex-row-reverse">
+    <ng-container *ngIf="auth.isAuthenticated$ | async else loggedOut;">
+        <button class="btn btn-outline-secondary" (click)="auth.logout({ returnTo: document.location.origin })">Log
+            Out</button>
+    </ng-container>
+    <ng-template #loggedOut>
+        <buttton class="btn btn-outline-secondary" (click)="auth.loginWithRedirect()">Log In</buttton>
+    </ng-template>
+</div>
