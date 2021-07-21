@@ -1,0 +1,23 @@
+<div class="container transparent">
+    <form (ngSubmit)="onSubmit()" #restaurantForm="ngForm">
+        <div class="form-group">
+            <label for="name">Restaurant Name: </label>
+            <input type="text" class="form-control" [(ngModel)]="newRestaurant.name" #name="ngModel" name="name"
+                placeholder="Enter the restaurant name">
+        </div>
+        <div class="form-group">
+            <label for="city">City: </label>
+            <input type="text" class="form-control" [(ngModel)]="newRestaurant.city" #name="ngModel" name="city"
+                placeholder="Enter the restaurant city">
+        </div>
+        <div class="form-group">
+            <label for="state">Province/State: </label>
+            <input type="text" class="form-control" [(ngModel)]="newRestaurant.state" #name="ngModel" name="state"
+                placeholder="Enter the restaurant province/state">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-secondary">Add Restaurant</button>
+        </div>
+    </form>
+    <button class="btn btn-warning" (click)="GoToRestaurants()">Go Back</button>
+</div>

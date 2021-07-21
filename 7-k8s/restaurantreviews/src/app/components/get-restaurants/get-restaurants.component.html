@@ -1,0 +1,21 @@
+<div class="container transparent">
+    <h6>Search: <input type="text" [(ngModel)]="filterByLetters" placeholder="Enter Restaurant Name"></h6>
+    <table class="table">
+        <thead>
+            <th>Restaurant Name</th>
+            <th>City</th>
+            <th>State</th>
+            <th><i class="fa fa-plus-square-o plus" aria-hidden="true" (click)="GoToAddRestaurant()"></i></th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let restaurant of restaurants;" (click)="GoToReviews(restaurant.id)">
+                <td>{{restaurant.name}}</td>
+                <td>{{restaurant.city}}</td>
+                <td>{{restaurant.state}}</td>
+                <td><i class="fa fa-pencil-square-o pencil" aria-hidden="true"
+                        (click)='GoToEditRestaurant(restaurant.id)'> </i>| <i class="fa fa-trash trash"
+                        aria-hidden="true" (click)='DeleteRestaurant(restaurant.id, restaurant.name)'></i></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
